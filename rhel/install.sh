@@ -71,6 +71,17 @@ EOF
 chmod a+x /etc/xrdp/startubuntu.sh
 fi
 
+# Add script to setup the rhel-session properly
+#if [ ! -e /usr/libexec/xrdp/start-rhel.sh ]; then
+#cat >> /usr/libexec/xrdp/start-rhel.sh << EOF
+#!/bin/sh
+#export XDG_CURRENT_DESKTOP="i3"
+#export GNOME_SHELL_SESSION_MODE="i3"
+#exec /usr/libexec/xrdp/startwm.sh
+#EOF
+#chmod a+x /usr/libexec/xrdp/start-rhel.sh
+#fi
+
 #FIXME: NO
 # use the script to setup the ubuntu session
 #sed -i_orig -e 's/startwm/startubuntu/g' /etc/xrdp/sesman.ini
