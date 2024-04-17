@@ -7,44 +7,25 @@
 #
 
 ###############################################################################
-# NOTE: This version of the script does not use this, its left for debugging
-# Use HWE kernel packages
-#
-#HWE=""
-#HWE="-hwe-22.04"
-
+# NOTE: This is a full rewrite for RHEL-based OS's, but follows the same
+#       structure as the script for Ubuntu. Most commands have been substituted
+#       or renamed in place.
 ###############################################################################
-# Update our machine to the latest code if we need to.
-#
 
 if [ "$(id -u)" -ne 0 ]; then
     echo 'This script must be run with root privileges' >&2
     exit 1
 fi
 
-#update && apt upgrade -y
+# Enable the EPEL-repository
 dnf update -y && dnf install -y epel-release
-
-# Note a reboot is not needed on this version of the script
-#if [ -f /var/run/reboot-required ]; then
-#    echo "A reboot is required in order to proceed with the install." >&2
-#    echo "Please reboot and re-run this script to finish the install." >&2
-#    exit 1
-#fi
 
 ###############################################################################
 # XRDP
 #
 
-# Note: NO
-# Install hv_kvp utils
-# apt install -y linux-tools-virtual${HWE}
-# apt install -y linux-cloud-tools-virtual${HWE}
-
-# Install the xrdp service so we have the auto start behavior
-#apt install -y xrdp
+# Install the XRDP-service and make sure it's not running
 dnf install -y xrdp
-
 systemctl stop xrdp
 systemctl stop xrdp-sesman
 
@@ -58,38 +39,28 @@ sed -i_orig -e 's/crypt_level=high/crypt_level=none/g' /etc/xrdp/xrdp.ini
 # disable bitmap compression since its local its much faster
 sed -i_orig -e 's/bitmap_compression=true/bitmap_compression=false/g' /etc/xrdp/xrdp.ini
 
-# FIXME: Lets skip this for now
-# Add script to setup the ubuntu session properly
-#if [ ! -e /etc/xrdp/startubuntu.sh ]; then
-if [ ! -e /etc ]; then
-cat >> /etc/xrdp/startubuntu.sh << EOF
+# Add script to setup the RHEL-session properly
+if [ ! -e /usr/libexec/xrdp/start-rhel.sh ]; then
+cat >> /usr/libexec/xrdp/start-rhel.sh << EOF
 #!/bin/sh
-export GNOME_SHELL_SESSION_MODE=ubuntu
-export XDG_CURRENT_DESKTOP=ubuntu:GNOME
-exec /etc/xrdp/startwm.sh
+export XDG_CURRENT_DESKTOP="i3" # In Ubuntu this was still "ubuntu:GNOME" even running i3
+#export GNOME_SHELL_SESSION_MODE="ubuntu"
+# FIXME: The latter variables are not confirmed relevant and are used in testing
+declare -x DESKTOP_SESSION="i3"
+declare -x GDMSESSION="i3"
+declare -x XDG_CURRENT_DESKTOP="i3"
+declare -x XDG_SESSION_DESKTOP="i3"
+exec /usr/libexec/xrdp/startwm.sh
 EOF
-chmod a+x /etc/xrdp/startubuntu.sh
+chmod a+x /usr/libexec/xrdp/start-rhel.sh
 fi
-
-# Add script to setup the rhel-session properly
-#if [ ! -e /usr/libexec/xrdp/start-rhel.sh ]; then
-#cat >> /usr/libexec/xrdp/start-rhel.sh << EOF
-#!/bin/sh
-#export XDG_CURRENT_DESKTOP="i3"
-#export GNOME_SHELL_SESSION_MODE="i3"
-#exec /usr/libexec/xrdp/startwm.sh
-#EOF
-#chmod a+x /usr/libexec/xrdp/start-rhel.sh
-#fi
-
-#FIXME: NO
-# use the script to setup the ubuntu session
-#sed -i_orig -e 's/startwm/startubuntu/g' /etc/xrdp/sesman.ini
+# Include this script in sesman.ini
+sed -i_orig -e 's/startwm/start-rhel/g' /etc/xrdp/sesman.ini
 
 # rename the redirected drives to 'shared-drives'
 sed -i -e 's/FuseMountName=thinclient_drives/FuseMountName=shared-drives/g' /etc/xrdp/sesman.ini
 
-# Changed the allowed_users
+# Changed the allowed_users or create the file if nonexisting
 if [ ! -e /etc/X11/Xwrapper.config ]; then
 echo allowed_users=anybody >> /etc/X11/Xwrapper.config
 fi
@@ -115,7 +86,7 @@ ResultInactive=no
 ResultActive=yes
 EOF
 
-# reconfigure the service
+# Reconfigure the service
 systemctl daemon-reload
 systemctl start xrdp
 
@@ -124,4 +95,3 @@ systemctl start xrdp
 ###############################################################################
 
 echo "Install is complete."
-#echo "Reboot your machine to begin using XRDP."
