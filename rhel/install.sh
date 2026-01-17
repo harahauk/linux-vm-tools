@@ -3,7 +3,7 @@
 # This script is for RHEL9-based distros (AlmaLinux, RockyLinux, OracleLinux) to download and install XRDP+XORGXRDP.
 # It aims to enable Enhanced Session mode for Hyper-V.
 # Major thanks to: https://www.nakivo.com/blog/install-ubuntu-20-04-on-hyper-v-with-enhanced-session
-# and to Hinara/linux-vm-tools ong Github for maintaining the now archived Microsoft-[repo](https://github.com/microsoft/linux-vm-tools)
+# and to Hinara/linux-vm-tools on Github for maintaining the now archived Microsoft-[repo](https://github.com/microsoft/linux-vm-tools)
 #
 
 ###############################################################################
@@ -32,24 +32,28 @@ systemctl stop xrdp-sesman
 # Configure the installed XRDP ini files.
 # use vsock transport.
 sed -i_orig -e 's/port=3389/port=vsock:\/\/-1:3389/g' /etc/xrdp/xrdp.ini
-# use rdp security.
+# Use RDP-security.
 sed -i_orig -e 's/security_layer=negotiate/security_layer=rdp/g' /etc/xrdp/xrdp.ini
-# remove encryption validation.
+# Remove encryption validation.
 sed -i_orig -e 's/crypt_level=high/crypt_level=none/g' /etc/xrdp/xrdp.ini
-# disable bitmap compression since its local its much faster
+# Disable bitmap compression since its local its much faster
 sed -i_orig -e 's/bitmap_compression=true/bitmap_compression=false/g' /etc/xrdp/xrdp.ini
 
 # Add script to setup the RHEL-session properly
-if [ ! -e /usr/libexec/xrdp/start-rhel.sh ]; then
-cat >> /usr/libexec/xrdp/start-rhel.sh << EOF
+# TODO: Determine the system's session manager and adjust accordingly
+#if [ ! -e /usr/libexec/xrdp/start-rhel.sh ]; then
+#cat >> /usr/libexec/xrdp/start-rhel.sh << EOF
+if [ ! -e /usr/libexec/xrdp/start-rhel-bash.sh ]; then
+cat >> /usr/libexec/xrdp/start-rhel-bash.sh << EOF
 #!/bin/sh
-export XDG_CURRENT_DESKTOP="i3" # In Ubuntu this was still "ubuntu:GNOME" even running i3
+#export XDG_CURRENT_DESKTOP="i3" # In Ubuntu this was still "ubuntu:GNOME" even running i3
 #export GNOME_SHELL_SESSION_MODE="ubuntu"
 # FIXME: The latter variables are not confirmed relevant and are used in testing
-declare -x DESKTOP_SESSION="i3"
-declare -x GDMSESSION="i3"
-declare -x XDG_CURRENT_DESKTOP="i3"
-declare -x XDG_SESSION_DESKTOP="i3"
+# TODO: Removed this in 2026
+#declare -x DESKTOP_SESSION="i3"
+#declare -x GDMSESSION="i3"
+#declare -x XDG_CURRENT_DESKTOP="i3"
+#declare -x XDG_SESSION_DESKTOP="i3"
 exec /usr/libexec/xrdp/startwm.sh
 EOF
 chmod a+x /usr/libexec/xrdp/start-rhel.sh
