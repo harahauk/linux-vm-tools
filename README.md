@@ -2,11 +2,11 @@
 Scripts to configure **enhanced-session** mode for **Hyper-V** guests.
 
 ## History
-This repository was originally maintained by Microsoft and the original code is archived [here](https://github.com/microsoft/linux-vm-tools).  
+This repository was originally maintained by *Microsoft* and the original code is archived [here](https://github.com/microsoft/linux-vm-tools).  
 Also see the original [README.md](./README.original.md) by the original implementers.  
-It seems that Microsoft is moving away from maintaining these scripts in favor of premade VMs accesible through Hyper-VM manager and presumable other Azure Dev Tools.
+It seems that *Microsoft* is moving away from maintaining these scripts in favor of *premade VMs* accesible through Hyper-VM manager and presumable other Azure Dev Tools.
 As per my knowledge it was then picked up and semi-steadily maintained by [Hinara](https://github.com/Hinara) in [this Github-repo](https://github.com/Hinara/linux-vm-tools).  
-I am not affiliated or in communication with this author, but it seems to me that maintenance has gone stale.  
+I am not affiliated or in communication with this author, but it seems to me that maintenance has since gone stale.  
 I endevour to keep this code working for as many major distributions as I can as the pre-made VMs maintained by Microsoft does not fit my requirements. I will try to credit any solutions sourced from other authors.
 
 
