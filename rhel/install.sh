@@ -88,6 +88,7 @@ EOF
 
 # Reconfigure the service
 systemctl daemon-reload
+systemctl enable xrdp
 systemctl start xrdp
 
 #
