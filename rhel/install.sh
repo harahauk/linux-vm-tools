@@ -56,10 +56,11 @@ cat >> /usr/libexec/xrdp/start-rhel-bash.sh << EOF
 #declare -x XDG_SESSION_DESKTOP="i3"
 exec /usr/libexec/xrdp/startwm.sh
 EOF
-chmod a+x /usr/libexec/xrdp/start-rhel.sh
 fi
+chmod a+x /usr/libexec/xrdp/*.sh
 # Include this script in sesman.ini
-sed -i_orig -e 's/startwm/start-rhel/g' /etc/xrdp/sesman.ini
+#sed -i_orig -e 's/startwm/start-rhel/g' /etc/xrdp/sesman.ini
+sed -i_orig -e 's/startwm/start-rhel-bash/g' /etc/xrdp/sesman.ini
 
 # rename the redirected drives to 'shared-drives'
 sed -i -e 's/FuseMountName=thinclient_drives/FuseMountName=shared-drives/g' /etc/xrdp/sesman.ini
