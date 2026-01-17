@@ -11,10 +11,10 @@ I endevour to keep this code working for as many major distributions as I can as
 
 
 ## Usage
-Check out this code to the guest, change directory to the relevant folder for your distrubution and run the install.sh-script. Turn off the VM and enable HVSocket as the communication protocol between your host and the guest by running <command> in an elevated Powershell-promt.
+Check out this code to the guest, change directory to the relevant folder for your distrubution and run the `install.sh`-script. Turn off the VM and enable HVSocket as the communication protocol between your host and the guest by running the command in the example below in an elevated Powershell-promt.
 
 ### Example
-Terminal inside your guest:
+Terminal inside your guest VM:
 ```bash
 git clone https://github.com/harahauk/linux-vm-tools
 cd linux-vm-tools/rhel
@@ -23,7 +23,7 @@ sudo shutdown -h now
 ```
 Elevated Powershell-promt on your host:
 ```powershell
-Set-VM -VMName <guest_vm_name>  -EnhancedSessionTransportType HvSocket
+Set-VM -VMName <your_guests_vm_name> -EnhancedSessionTransportType HvSocket
 ```
 Then boot the guest and press the Enhanced-session button if does not already default to it.
 
@@ -45,6 +45,6 @@ Then boot the guest and press the Enhanced-session button if does not already de
 The modifications made to the guests carries serious security risks. I do not condone exposing any guests changed by these scripts to public network-segments. 
 
 ### Fedora
-Since Fedora ´43´ is being shipped without ´X11´ in favor of ´Wayland´ some serious re-design of this solution is needed for a working enchanced session. xrdp still seems to be working, but xvnc is proving harder to convince.
+Since Fedora `43` is being shipped without `X11` in favor of `Wayland` some serious re-design of this solution is needed for a working enchanced session. xrdp still seems to be working, but xvnc is proving harder to convince.
 For now I have no solution, will look into [WayVNC] and similar implementations. Since Fedora 42 is EOL in about three months no effort will be made to support Fedora on X11.
 
