@@ -46,6 +46,7 @@ Then boot the guest and press the Enhanced-session button if does not already de
 The modifications made to the guests carries serious security risks. I do not condone exposing any guests changed by these scripts to public network-segments. 
 
 ### Wayland (Fedora 43, AlmaLinux 10)
+Wayland is udoubtably the future in favor of the seriously dated X11/Xorg-server. However getting enhanced-session to play nice with Wayland is proving a challenge.  
 Since Fedora `43` is being shipped without `X11` in favor of `Wayland` some serious re-design of this solution is needed for a working enchanced session. xrdp still seems to be working, but xvnc is proving harder to convince.
 For now I have no solution that is not ugly as sin, will look into [WayVNC] and similar implementations.  
 Since Fedora 42 is EOL in about three months no effort will be made to support Fedora on X11. AlmaLinux 9 is still supported for 6 years.
