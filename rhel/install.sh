@@ -60,7 +60,8 @@ fi
 chmod a+x /usr/libexec/xrdp/*.sh
 # Include this script in sesman.ini
 #sed -i_orig -e 's/startwm/start-rhel/g' /etc/xrdp/sesman.ini
-sed -i_orig -e 's/startwm/start-rhel-bash/g' /etc/xrdp/sesman.ini
+# NOTE: The entry already contain the -bash-part, do not include
+sed -i_orig -e 's/startwm/start-rhel/g' /etc/xrdp/sesman.ini
 
 # rename the redirected drives to 'shared-drives'
 sed -i -e 's/FuseMountName=thinclient_drives/FuseMountName=shared-drives/g' /etc/xrdp/sesman.ini
