@@ -1,25 +1,31 @@
 # Enhanced Session Mode for Linux
-Scripts to configure enhanced-session mode for Hyper-V guests.
+Scripts to configure **enhanced-session** mode for **Hyper-V** guests.
 
 ## History
-This repository was originally maintained by Microsoft and the original code is archived [here].
-Also see the original [README.md] by the original implementers.
-As per my knowledge it was then picked up and semi-steadily maintained by [Author] in [this Github-repo].
-I endevour to keep this code working for as many major distributions as I can
+This repository was originally maintained by Microsoft and the original code is archived [here](https://github.com/microsoft/linux-vm-tools).
+Also see the original [README.md](./README.original.md) by the original implementers.
+It seems that Microsoft is moving away from maintaining these scripts in favor of premade VMs accesible through Hyper-VM manager and presumable other Azure Dev Tools.
+As per my knowledge it was then picked up and semi-steadily maintained by [Hinara](https://github.com/Hinara) in [this Github-repo](https://github.com/Hinara/linux-vm-tools).
+I endevour to keep this code working for as many major distributions as I can as the pre-made VMs maintained by Microsoft does not fit my requirements. I will try to credit any solutions sourced from other authors.
+
 
 ## Usage
 Check out this code to the guest, change directory to the relevant folder for your distrubution and run the install.sh-script. Turn off the VM and enable HVSocket as the communication protocol between your host and the guest by running <command> in an elevated Powershell-promt.
 
-Example
+### Example
+Terminal inside your guest:
 ```bash
 git clone https://github.com/harahauk/linux-vm-tools
 cd linux-vm-tools/rhel
 sudo ./install.sh
 sudo shutdown -h now
 ```
+Elevated Powershell-promt on your host:
 ```powershell
-
+Set-VM -VMName <guest_vm_name>  -EnhancedSessionTransportType HvSocket
 ```
+Then boot the guest and press the Enhanced-session button if does not already default to it.
+
 
 ## Working distributions
 | Family | Version | Window Manager |
@@ -33,6 +39,9 @@ sudo shutdown -h now
 
 
 ## Difficulties and considerations
+
+### General Security
+The modifications made to the guests carries serious security risks. I do not condone exposing any guests changed by these scripts to public network-segments. 
 
 ### Fedora
 Since Fedora '43' is being shipped without X11 in favor of Wayland some serious re-design of this solution is needed for a working enchanced session. xrdp still seems to be working, but xvnc is proving harder to convince.
