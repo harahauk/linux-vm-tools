@@ -17,7 +17,8 @@ Check out this code to the guest, change directory to the relevant folder for yo
 Terminal inside your guest VM:
 ```bash
 git clone https://github.com/harahauk/linux-vm-tools
-cd linux-vm-tools/rhel
+chmod +x linux-vm-tools/rhel/9/install.sh
+cd linux-vm-tools/rhel/9
 sudo ./install.sh
 sudo shutdown -h now
 ```
