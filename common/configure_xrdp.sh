@@ -16,3 +16,9 @@ sed -i_orig -e 's/security_layer=negotiate/security_layer=rdp/g' /etc/xrdp/xrdp.
 sed -i_orig -e 's/crypt_level=high/crypt_level=none/g' /etc/xrdp/xrdp.ini
 # Disable bitmap compression since its local its much faster
 sed -i_orig -e 's/bitmap_compression=true/bitmap_compression=false/g' /etc/xrdp/xrdp.ini
+
+# Change the X allowed_users or create the file if nonexisting
+if [ ! -e /etc/X11/Xwrapper.config ]; then
+echo allowed_users=anybody >> /etc/X11/Xwrapper.config
+fi
+sed -i_orig -e 's/allowed_users=console/allowed_users=anybody/g' /etc/X11/Xwrapper.config

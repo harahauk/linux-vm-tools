@@ -26,7 +26,7 @@ dnf install -y \
 
 echo "Configuring XRDP.."
 chmod +x ../../common/configure_xrdp.sh
-exec ../../common/configure_xrdp.sh
+../../common/configure_xrdp.sh
 # Enable and start XRDP service
 echo "Enabling and starting XRDP service.."
 #TODO: s/config
