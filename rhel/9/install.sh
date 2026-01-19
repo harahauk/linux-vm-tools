@@ -19,13 +19,13 @@ dnf update -y
 
 # Installing Xorg/X11 and XRDP
 echo "Installing Xorg/X11 and XRDP packages.."
-sudo dnf install -y \
+dnf install -y \
   xrdp \
   xorgxrdp \
   xorg-x11-server-Xorg
 
 echo "Configuring XRDP.."
-exec ../..common/configure_xrdp.sh
+exec ../../common/configure_xrdp.sh
 # Enable and start XRDP service
 echo "Enabling and starting XRDP service.."
 #TODO: s/config
