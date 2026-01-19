@@ -35,3 +35,4 @@ systemctl enable --now xrdp xrdp-sesman
 echo "Backend configured. If you have a working window manager, you should be able to connect after the next step."
 echo "Action required once: Run 'Set-VM -VMName <the_name_of_this_VM> -EnhancedSessionTransportType HvSocket' in an elevated Powershell promt while this VM is turned off"
 echo "Then start the VM and connect using Enhanced Session Mode."
+echo "Need a window manager? Run './linux-vm-tools/common/install_i3.sh' with sudo to install i3wm. Gnome/KDE coming in future releases."
