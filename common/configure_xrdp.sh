@@ -2,8 +2,8 @@
 
 ##
 #  Configure XRDP for Hyper-V Enhanced Session mode
-#  This procedure is the same on all linux-distribution supported by this project.
-#  This script is sourced from the installation scripts for each distribution.
+#  This procedure is the same on all linux-distribution supported by this project and thus
+#  this script is sourced from the installation scripts for each distribution.
 ##
 
 #TODO: If file not found abort and notify user
@@ -17,7 +17,10 @@ sed -i_orig -e 's/crypt_level=high/crypt_level=none/g' /etc/xrdp/xrdp.ini
 # Disable bitmap compression since its local its much faster
 sed -i_orig -e 's/bitmap_compression=true/bitmap_compression=false/g' /etc/xrdp/xrdp.ini
 
-# Change the X allowed_users or create the file if nonexisting
+# sesman - Rename the redirected drives to 'shared-drives'
+sed -i -e 's/FuseMountName=thinclient_drives/FuseMountName=shared-drives/g' /etc/xrdp/sesman.ini
+
+# X - Change the X allowed_users or create the file if nonexisting
 if [ ! -e /etc/X11/Xwrapper.config ]; then
 echo allowed_users=anybody >> /etc/X11/Xwrapper.config
 fi
