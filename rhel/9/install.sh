@@ -25,6 +25,7 @@ dnf install -y \
   xorg-x11-server-Xorg
 
 echo "Configuring XRDP.."
+chmod +x ../../common/configure_xrdp.sh
 exec ../../common/configure_xrdp.sh
 # Enable and start XRDP service
 echo "Enabling and starting XRDP service.."
