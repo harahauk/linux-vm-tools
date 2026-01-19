@@ -6,7 +6,7 @@
 
 #TODO: Determine user
 echo "Deleting any existing .Xauthority and .serverauth* files in the user's home-directory to avoid possible conflicts..."
-sudo -u "$SUDO_USER" rm ~/.Xauthority ~/.serveraut*
+rm /home/"$SUDO_USER"/.Xauthority /home/"$SUDO_USER"/.serveraut*
 #TODO: Determine package manager and install i3
 echo "Installing i3 window manager..."
 dnf install -y i3 i3status
