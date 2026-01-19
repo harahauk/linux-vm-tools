@@ -29,8 +29,9 @@ Then boot the guest and press the Enhanced-session button if does not already de
 
 
 ## Working distributions
-| Family | Version | Window Manager |
-| ------ | ------- | -------------- |
+| Family    | Version | Window Manager |
+| --------- | ------- | -------------- |
+| AlmaLinux |       9 |         X11/i3 |
 
 
 ## Non-working distributions
