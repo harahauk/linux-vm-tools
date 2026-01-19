@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# DeprecationWarning: This script is being replaced, see ./9/install.sh for the new version.
+
 # This script is for RHEL9-based distros (AlmaLinux, RockyLinux, OracleLinux) to download and install XRDP+XORGXRDP.
 # It aims to enable Enhanced Session mode for Hyper-V.
 # Major thanks to: https://www.nakivo.com/blog/install-ubuntu-20-04-on-hyper-v-with-enhanced-session
