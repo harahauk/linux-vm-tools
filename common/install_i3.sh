@@ -14,4 +14,6 @@ echo "exec i3" > /home/"$SUDO_USER"/.Xclients
 chmod a+x /home/"$SUDO_USER"/.Xclients
 cp /etc/X11/xinit/xinitrc /home/"$SUDO_USER"/.xinitrc
 ln -s /home/"$SUDO_USER"/.xinitrc /home/"$SUDO_USER"/.xsession
-echo "i3 window manager installed and configured. You should be able to connect using XRDP now if youve ran the mandatory Powershell-command once."
+systemctl set-default graphical.target
+echo "i3 window manager installed and configured. You should be able to connect using XRDP once X is started provided you've ran the mandatory Powershell-command once."
+echo "Run 'startx' to start the X server and i3 window manager."
