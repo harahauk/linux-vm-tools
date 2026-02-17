@@ -18,8 +18,10 @@ Terminal inside your guest VM:
 ```bash
 git clone https://github.com/harahauk/linux-vm-tools
 chmod +x linux-vm-tools/rhel/9/install.sh
-cd linux-vm-tools/rhel/9
-sudo ./install.sh
+sudo linux-vm-tools/rhel/9/install.sh
+# Optional if you already have a supported Window Manager
+chmod +x linux-vm-tools/common/install_i3.sh
+sudo linux-vm-tools/common/install_i3.sh
 sudo shutdown -h now
 ```
 Elevated Powershell-promt on your host:
