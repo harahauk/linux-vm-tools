@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ##
-#  Configures a RHEL 9-based (AlmaLinux, RockuLinux, etc.) VM to support 
+#  Configures a Fedora 43-base VM to support
 #  Hyper-V Enhanced Session Mode using XRDP and Xorg.
 ##
 
@@ -12,11 +12,12 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
+## Not needed on Fedora
 # Package repositories
-echo "Adding necessary package repositories (EPEL, CRB) and updating system..."
-dnf install -y epel-release
-/usr/bin/crb enable # Not sure if actually needed # TODO: review without
-dnf update -y
+#echo "Adding necessary package repositories (EPEL, CRB) and updating system..."
+#dnf install -y epel-release
+#/usr/bin/crb enable # Not sure if actually needed # TODO: review without
+#dnf update -y
 
 # Installing Xorg/X11 and XRDP
 echo "Installing Xorg/X11 and XRDP packages.."
