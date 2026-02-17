@@ -39,7 +39,7 @@ Then boot the guest and press the Enhanced-session button if does not already de
 | AlmaLinux |       9 |          X11/i3 |
 | Fedora    |      43 |         X11/i3* |
 
-\* an denoted asterix means the operating system must be re-configured to using `Xorg` either via installing the `base`-version of the OS and then running the scripts provided here or by configuring `Xorg` in an exisitng `Wayland`-based distro.  
+\*) an denoted asterix means the operating system must be re-configured to using `Xorg` either via installing the `base`-version of the OS and then running the scripts provided here or by configuring `Xorg` in an exisitng `Wayland`-based distro.  
 
 
 ## Non-working distributions
