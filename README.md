@@ -4,10 +4,11 @@ Scripts to configure **enhanced-session** mode for **Hyper-V** guests.
 ## History
 This repository was originally maintained by **Microsoft** and that original code is archived [here](https://github.com/microsoft/linux-vm-tools).  
 Also see the original [README.md](./README.original.md) by the implementers.  
-It seems that **Microsoft** is moving away from maintaining these scripts in favor of *premade VMs* accessible through Hyper-VM manager and presumable other Azure Dev Tools.
+It seems that *Microsoft* is moving away from maintaining these scripts in favor of *premade VMs* accessible through Hyper-VM manager and presumable other Azure Dev Tools.
 I assume  the code was then picked up and steadily maintained by [Hinara](https://github.com/Hinara) in [this Github-repo](https://github.com/Hinara/linux-vm-tools).  
 I am not affiliated or in communication with this author, but it seems to me that maintenance has since gone stale?  
-I endevour to keep this code working for as many major distributions as I can as the pre-made VMs maintained by Microsoft does not fit my requirements. I will try to credit any solutions sourced from other authors.
+I endevour to keep this code working for as many major distributions as I can as the pre-made VMs maintained by Microsoft does not fit my requirements.  
+I will try to credit any solutions sourced from other authors.
 
 
 ## Usage
@@ -37,6 +38,7 @@ Then boot the guest and press the Enhanced-session button if does not already de
 | --------- | ------- | --------------- |
 | AlmaLinux |       9 |          X11/i3 |
 | Fedora    |      43 |         X11/i3* |
+
 \* an denoted asterix means the operating system must be re-configured to using `Xorg` either via installing the `base`-version of the OS and then running the scripts provided here or by configuring `Xorg` in an exisitng `Wayland`-based distro.  
 
 
