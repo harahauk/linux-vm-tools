@@ -43,7 +43,7 @@ Then boot the guest and press the Enhanced-session button if does not already de
 
 
 ## Non-working distributions
-In general, no `Wayland`-distro is supported, you
+In general, no `Wayland`-distro is supported
 | Family    | Version | Window Manager  |
 | --------- | ------- | --------------- |
 | Fedora    |      43 | Wayland / Gnome |
