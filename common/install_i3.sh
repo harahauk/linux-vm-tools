@@ -8,7 +8,9 @@
 echo "Deleting any existing .Xauthority and .serverauth* files in the user's home-directory to avoid possible conflicts..."
 rm /home/"$SUDO_USER"/.Xauthority /home/"$SUDO_USER"/.serveraut*
 #TODO: Determine package manager and install i3
-echo "Installing i3 window manager..."
+echo "Installing LightDM display manager.."
+sudo dnf install -y lightdm lightdm-gtk
+echo "Installing i3 window manager.."
 dnf install -y i3 i3status
 echo "exec i3" > /home/"$SUDO_USER"/.Xclients
 chmod a+x /home/"$SUDO_USER"/.Xclients
