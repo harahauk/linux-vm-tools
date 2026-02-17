@@ -50,14 +50,14 @@ In general, no `Wayland`-distro is supported
 | AlmaLinux |      10 | Wayland / Gnome |
 
 
-## Difficulties and considerations
+## Difficulties and Considerations
 
 ### General Security
-The modifications made to the guests carries serious security risks. I do not condone exposing any guests changed by these scripts to public network-segments. 
+The modifications made to the guests carries serious security risks. I do not condone or propose exposing any guests changed by these scripts to public-facing network-segments. 
 
-### Wayland (Fedora 43, AlmaLinux 10)
+### Wayland (Fedora 43, AlmaLinux 10, etc..)
 Wayland is undoubtably the future in favor of the seriously dated X11/Xorg-server. However getting enhanced-session to play nice with Wayland is proving a challenge.  
-Since more and more Desktop flavors of modern Linux-distribution are is being shipped without `X11` in favor of `Wayland` some serious re-design of this solution is needed for a working enchanced session. xrdp still seems to be working, but the session crashes after login.
+Since more and more desktop flavors of modern Linux-distribution are being shipped without `X11` in favor of `Wayland` some serious re-design of this solution is needed for a working enchanced session. xrdp still seems to be working, but the session crashes after login.
 
 For now I have no solution that is not ugly as sin, will look into [WayVNC] and similar implementations.  
 
