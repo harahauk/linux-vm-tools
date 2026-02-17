@@ -6,7 +6,7 @@ This repository was originally maintained by **Microsoft** and that original cod
 Also see the original [README.md](./README.original.md) by the implementers.  
 It seems that *Microsoft* is moving away from maintaining these scripts in favor of *premade VMs* accessible through Hyper-VM manager and presumable other Azure Dev Tools.
 
-For a long time the code was  steadily maintained by [Hinara](https://github.com/Hinara) in [this Github-repo](https://github.com/Hinara/linux-vm-tools).  
+For a long time the code was steadily maintained by [Hinara](https://github.com/Hinara) in [this Github-repo](https://github.com/Hinara/linux-vm-tools).  
 I am not affiliated or in communication with this author, but it seems to me that maintenance has halted.  
 I endevour to keep this code working for as many major distributions as I can as the pre-made VMs maintained by Microsoft does not fit my requirements.  
 I will try to credit any solutions sourced from other authors.
@@ -44,7 +44,7 @@ Then boot the guest and press the Enhanced-session button if does not already de
 
 
 ## Non-working distributions
-In general, no `Wayland`-distribution is supported
+As a rule of thumb, no `Wayland`-distribution is supported
 | Family    | Version | Window Manager  |
 | --------- | ------- | --------------- |
 | Fedora    |      43 | Wayland / Gnome |
@@ -54,7 +54,7 @@ In general, no `Wayland`-distribution is supported
 ## Difficulties and Considerations
 
 ### General Security
-The modifications made to the guests carries serious security risks. I do not condone or propose exposing any guests changed by these scripts to public-facing network-segments.  
+The modifications made to the guests is suspected to carry some serious security risks.  I do not condone or propose exposing any guests changed by these scripts to public-facing network-segments or to use any guest modified by these scripts in a production environment.  
 
 ### Wayland (Fedora 43, AlmaLinux 10, etc..)
 Wayland is undoubtably the future in favor of the seriously dated X11/Xorg-server.  
