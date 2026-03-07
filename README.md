@@ -13,7 +13,8 @@ I will try to credit any solutions sourced from other authors.
 
 
 ## Usage
-Check out this code to the guest. Determine which subfolder corresponds to your guest's operating system and run the `linux-vm-tools/os-family/version/install.sh`-script. Also run the desired Window Manager script if needed. Turn off the VM and enable **HVSocket** as the communication protocol between your host and the guest by running the command in the example below in an elevated Powershell-promt.
+Check out this code to the guest. Determine which subfolder corresponds to your guest's operating system and run the `linux-vm-tools/os-family/version/install.sh`-script. 
+Also run the desired Window Manager script if needed. Turn off the VM and enable **HVSocket** as the communication protocol between your host and the guest by running the command in the example below in an elevated Powershell-promt.
 
 
 ### Example for enabling Enchanced-session on AlmaLinux 9
@@ -25,6 +26,8 @@ sudo linux-vm-tools/rhel/9/install.sh
 # Optional if you already have a supported Window Manager
 chmod +x linux-vm-tools/common/install_i3.sh
 sudo linux-vm-tools/common/install_i3.sh
+# Optional utility-script to enable sound over XRDP using pipewire
+./linux-vm-tools/common/enable_sound_xorg_pipewire.sh
 sudo shutdown -h now
 ```
 Elevated Powershell-promt on your host:
