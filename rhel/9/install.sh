@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ##
-#  Configures a RHEL 9-based (AlmaLinux, RockuLinux, etc.) VM to support 
+#  Configures a RHEL 9-based (AlmaLinux, RockyLinux, etc.) VM to support
 #  Hyper-V Enhanced Session Mode using XRDP and Xorg.
 ##
 
