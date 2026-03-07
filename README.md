@@ -35,14 +35,13 @@ sudo linux-vm-tools/common/install_i3.sh
 sudo shutdown -h now
 ```
 
-
-### Step to complete for all Linux-distributions 
+### Steps to complete for **all** Linux-distributions 
 - The Guest-machine must be powered off.
-- Start Elevated Powershell-promt on your host:
+- Start an Elevated Powershell-promt on your host:
 ```powershell
 Set-VM -EnhancedSessionTransportType HvSocket -VMName <your_guests_vm_name>
 ```
-- Then boot the guest and press the Enhanced-session button if does not already default to it.
+- Then boot the guest and press the `Enhanced-session` button if does not already default to it. The first time might take a minute to be recognized by Hyper-V Manager.
 
 
 ## Working distributions
@@ -70,8 +69,8 @@ The modifications made to the guests is suspected to carry some serious security
 ### Wayland (Fedora 43, AlmaLinux 10, etc..)
 Wayland is undoubtably the future in favor of the seriously dated X11/Xorg-server.  
 However getting enhanced-session to play nice with Wayland is proving a challenge.  
-Since most desktop flavors of modern Linux-distributions are being shipped without `X11` in favor of `Wayland` some serious re-design of this solution is needed for a working and "supported" enhanced session.  
+Since most desktop flavors of modern Linux-distributions are being shipped without `Xorg/X11` in favor of `Wayland` some serious re-design of this solution is needed for a working and "supported" enhanced session.  
 
-xrdp still seems to be working, but the session crashes after login.
-For now I have no solution that is not ugly as sin, will look into [WayVNC] and similar implementations.  
+In Wayland-based system XRDP still seems to be mostly working, but the session crashes after login.
+For now I have no solution for Wayland I can recommend.   
 
