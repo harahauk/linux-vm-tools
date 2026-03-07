@@ -7,11 +7,11 @@ The original [README.md](./README.original.md) is kept under [README.original.md
 
 It seems that *Microsoft* moved away from maintaining these scripts in favor of *premade VMs* accessible through Hyper-VM Manager and presumable other Azure Dev Tools.
 
-For a time this code was steadily maintained by [Hinara](https://github.com/Hinara) in [this Github-repo](https://github.com/Hinara/linux-vm-tools).  
+For a time this code was steadily maintained by [Hinara](https://github.com/Hinara) in [this Github-repo](https://github.com/Hinara/linux-vm-tools) and this is a fork of that authors massive efforts.  
 
-I am not affiliated or in communication with this author, but it seems to me that maintenance has halted.  
+I am not affiliated or in communication with this author, but it seems to me that maintenance has since halted.  
 
-My continuation of the repository endevours to keep `Enhanced Session` working for as many major Linux-distributions as I can as the pre-made VMs maintained by Microsoft does not fit all my requirements.  
+My continuation of the repository endevours to keep `Enhanced Session` working for as many major Linux-distributions as I can. This as an alternative to the pre-made VMs maintained by Microsoft as they do not fit my requirements.  
 
 
 ## Usage
