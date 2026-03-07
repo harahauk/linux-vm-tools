@@ -1,20 +1,22 @@
 # Enhanced Session Mode for Linux
-Scripts to configure **enhanced-session** mode for **Hyper-V** Linux-guests.
+Scripts to configure `Enhanced session`-mode for guest virtual machines running `Linux` under `Hyper-V`.
 
 ## History
 This repository was originally maintained by **Microsoft** and that original code is archived [here](https://github.com/microsoft/linux-vm-tools).  
-Also see the original [README.md](./README.original.md) by the implementers.  
+Also see the original [README.md](./README.original.md) from the original repository.  
 It seems that *Microsoft* is moving away from maintaining these scripts in favor of *premade VMs* accessible through Hyper-VM manager and presumable other Azure Dev Tools.
 
-For a long time the code was steadily maintained by [Hinara](https://github.com/Hinara) in [this Github-repo](https://github.com/Hinara/linux-vm-tools).  
+For a time the code was steadily maintained by [Hinara](https://github.com/Hinara) in [this Github-repo](https://github.com/Hinara/linux-vm-tools).  
 I am not affiliated or in communication with this author, but it seems to me that maintenance has halted.  
-I endevour to keep this code working for as many major distributions as I can as the pre-made VMs maintained by Microsoft does not fit my requirements.  
-I will try to credit any solutions sourced from other authors.
+This installment of the repository endevours to keep `Enhanced Session` working for as many major Linux-distributions as I can. as the pre-made VMs maintained by Microsoft does not fit my requirements.  
+ddddI will try to credit any solutions sourced from other authors.
 
 
 ## Usage
-Check out this code to the guest. Determine which subfolder corresponds to your guest's operating system and run the `linux-vm-tools/os-family/version/install.sh`-script. 
-Also run the desired Window Manager script if needed. Turn off the VM and enable **HVSocket** as the communication protocol between your host and the guest by running the command in the example below in an elevated Powershell-promt.
+- Check out this code to the guest operating system
+- Determine which subfolder corresponds to your operating system and run the `linux-vm-tools/os-family/version/install.sh`-script.
+- If needed run the installation-script for a window-manager and/or the script to enable sound 
+- Turn off the VM and enable `HVSocket` as the communication protocol between your host and the guest (by running the command in the example below in an elevated Powershell-promt).
 
 
 ### Example for enabling Enchanced-session on AlmaLinux 9
@@ -30,11 +32,15 @@ sudo linux-vm-tools/common/install_i3.sh
 ./linux-vm-tools/common/enable_sound_xorg_pipewire.sh
 sudo shutdown -h now
 ```
-Elevated Powershell-promt on your host:
+
+
+### Step to complete for all Linux-distributions 
+- The Guest-machine must be powered off.
+- Start Elevated Powershell-promt on your host:
 ```powershell
-Set-VM -VMName <your_guests_vm_name> -EnhancedSessionTransportType HvSocket
+Set-VM -EnhancedSessionTransportType HvSocket -VMName <your_guests_vm_name>
 ```
-Then boot the guest and press the Enhanced-session button if does not already default to it.
+- Then boot the guest and press the Enhanced-session button if does not already default to it.
 
 
 ## Working distributions
