@@ -1,15 +1,14 @@
 # Enhanced Session Mode for Linux
-Scripts to configure `Enhanced session`-mode for guest virtual machines running `Linux` under `Hyper-V`.
+Scripts to configure `Enhanced session`-mode for guest virtual machines running **Linux under Hyper-V**.
 
 ## History
-This repository was originally maintained by **Microsoft** and that original code is archived [here](https://github.com/microsoft/linux-vm-tools).  
-Also see the original [README.md](./README.original.md) from the original repository.  
-It seems that *Microsoft* is moving away from maintaining these scripts in favor of *premade VMs* accessible through Hyper-VM manager and presumable other Azure Dev Tools.
+This repository was originally maintained by **Microsoft** and that original code is archived [here](https://github.com/microsoft/linux-vm-tools).
+The original **README.md** is kept under [README.original.md](./README.original.md)    
+It seems that *Microsoft* is moving away from maintaining these scripts in favor of *premade VMs* accessible through Hyper-VM Manager and presumable other Azure Dev Tools.
 
 For a time the code was steadily maintained by [Hinara](https://github.com/Hinara) in [this Github-repo](https://github.com/Hinara/linux-vm-tools).  
 I am not affiliated or in communication with this author, but it seems to me that maintenance has halted.  
-This installment of the repository endevours to keep `Enhanced Session` working for as many major Linux-distributions as I can. as the pre-made VMs maintained by Microsoft does not fit my requirements.  
-ddddI will try to credit any solutions sourced from other authors.
+My installment of the repository endevours to keep `Enhanced Session` working for as many major Linux-distributions as I can as the pre-made VMs maintained by Microsoft does not fit all my requirements.  
 
 
 ## Usage
