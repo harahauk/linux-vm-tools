@@ -22,4 +22,6 @@ echo "Attempting to build module"
 make
 echo "Installing module"
 sudo make install
-
+/usr/local/libexec/pipewire-module-xrdp/load_pw_modules.sh
+echo "Sound should now work (with some grumpy errors in this terminal you can ignore)"
+echo "Make sure you add 'exec --no-startup-id /usr/local/libexec/pipewire-module-xrdp/load_pw_modules.sh' to your '~/.config/i3/config'"
