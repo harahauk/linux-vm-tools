@@ -9,6 +9,9 @@
 echo "Deleting any existing .Xauthority and .serverauth* files in the user's home-directory to avoid possible conflicts..."
 rm /home/"$SUDO_USER"/.Xauthority /home/"$SUDO_USER"/.serveraut*
 #TODO: Determine package manager and install i3
+echo "Making sure 'epel-release' and 'CRB'-repositories are enabled"
+sudo dnf install -y epel-release
+sudo dnf config-manager --set-enabled crb
 echo "Installing LightDM display manager.."
 sudo dnf install -y lightdm lightdm-gtk
 echo "Installing i3 window manager.."
