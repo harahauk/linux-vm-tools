@@ -12,6 +12,8 @@ rm /home/"$SUDO_USER"/.Xauthority /home/"$SUDO_USER"/.serveraut*
 echo "Making sure 'epel-release' and 'CRB'-repositories are enabled"
 sudo dnf install -y epel-release
 sudo dnf config-manager --set-enabled crb
+echo "Installing Xorg"
+sudo dnf install -y xorg-x11-server-Xorg
 echo "Installing LightDM display manager.."
 sudo dnf install -y lightdm lightdm-gtk plymouth
 echo "Installing i3 window manager.."
