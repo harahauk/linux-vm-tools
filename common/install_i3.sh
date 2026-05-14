@@ -13,7 +13,7 @@ echo "Making sure 'epel-release' and 'CRB'-repositories are enabled"
 sudo dnf install -y epel-release
 sudo dnf config-manager --set-enabled crb
 echo "Installing LightDM display manager.."
-sudo dnf install -y lightdm lightdm-gtk
+sudo dnf install -y lightdm lightdm-gtk plymouth
 echo "Installing i3 window manager.."
 sudo dnf install -y i3 i3status
 echo "exec i3" > /home/"$SUDO_USER"/.Xclients
